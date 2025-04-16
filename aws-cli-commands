@@ -1,0 +1,31 @@
+AWS CLI Commands:
+
+Verify AWS CLI is installed
+aws --verison
+
+Configure your AWS CLI
+aws configure
+
+List existing S3 buckets
+aws s3 ls
+
+Create new S3 bucket
+aws s3api create-bucket \
+    --bucket bucketname \
+    --region aws-region
+
+Copy file to S3 bucket
+aws s3 cp testfile.txt s3://bucketname
+
+List all files in S3 bucket
+aws s3 ls bucketname/
+
+List all EC2 instances
+aws ec2 describe-instances
+
+Stop an instance
+aws ec2 stop-instances --instance-ids instance id
+
+Terminate an instance 
+aws ec2 terminate-instances 
+--instance-ids instance id
