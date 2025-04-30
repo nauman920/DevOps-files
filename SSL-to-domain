@@ -9,13 +9,13 @@ install certbot if not installl - sudo apt install certbot python3-certbot-nginx
 
 open: cd /etc/nginx/sites-available/
 and create a file with domain name
-sudo nano dev-api-eliocapital.quecko.org
+sudo nano <domain-name>		 #your file name should be your domain name
 add the nginx configurations (add domain and port) and save the file
 port is defined in env file -- cat .env OR from running containers
 
 
 Changes in sites-available should be in sites-enabled too
-sudo ln -s /etc/nginx/sites-available/stg-api-tomirb.quecko.org /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/<domain-name> /etc/nginx/sites-enabled/
 
 Now Reload nginx ---- 
 sudo nginx -t
@@ -25,10 +25,11 @@ sudo systemctl reload nginx.service
 after doing that add ssl certificate and check the website 
 
 sudo certbot --nginx -d example.com -d www.example.com OR
-sudo certbot --nginx -d stg-api-tomirb.quecko.org
+sudo certbot --nginx -d <domain-name>		 #write domain name with or without www
 
 (after running this command it will ask you for email and other type Yes)
 now you can type the website in browser and check for ssl confirmation
+
 
 
 link to follow steps
