@@ -1,4 +1,4 @@
-#####################################################deploying 2 tier flask-sql-ecs-using dicker hub ############################################################
+cd#####################################################deploying 2 tier flask-sql-ecs-using dicker hub ############################################################
 
 1] Creating Cluster
 cluster name: twotier_cluster

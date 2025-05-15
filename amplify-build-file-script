@@ -1,0 +1,45 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - nvm use 16
+        - npm ci --legacy-peer-deps
+    build:
+      commands:
+        - nvm use 16
+        - node -v
+        - npm run build
+  artifacts:
+    baseDirectory: build
+    files:
+      - "**/*"
+  cache:
+    paths:
+      - .npm/**/*
+
+
+———————————————
+#### To Serve Pre-Build ####
+
+
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # You can still keep 'yarn install' here if you need dependencies,
+        # but if you're just deploying the already built files, this step may be unnecessary
+        - echo ignore
+    build:
+      commands:
+        # Skip build since you already have the build in the repo
+        - echo "Skipping build as files are pre-built"
+  artifacts:
+    baseDirectory: build  # This is the folder where your build files are located
+    files:
+      - "**/*"  # Deploy all files inside the build directory
+  cache:
+    paths:
+      - node_modules/**/*
+
